@@ -1,36 +1,14 @@
-def add(x,y):
-    return x + y
+import random
+import string
 
-def subtract(x,y):
-    return x - y
+def generate_password(length):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for i in range(length))
+    return password
 
-def multiply(x,y):
-    return x * y
+# Get user input for password length
+password_length = int(input("Enter the desired length of the password:"))
 
-def divide(x,y):
-    if y != 0:
-        return x / y
-    else:
-        return "Can't divided by zero."
-    
-# Get user input
-
-num1 = float(input("Enter the first number:"))
-num2 = float(input("Enter the second number:"))
-operation = input("Choose operation (+, -, *, /):")
-
-# Perform calculation based on user's choice
-
-if operation == '+':
-    result = add(num1, num2)
-elif operation == '-':
-    result = subtract(num1, num2)
-elif operation == '*':
-    result = multiply(num1, num2)
-elif operation == '/':
-    result = divide(num1, num2)
-else:
-    result = "Invalid operation."
-
-# Display the result
-print("Result:", result)
+# Generate and display the password
+password = generate_password(password_length)
+print("Generated Password:", password)
